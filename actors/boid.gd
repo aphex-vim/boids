@@ -19,6 +19,7 @@ func _ready():
 func _physics_process(delta):
 	screenwrap()
 	adjust_for_flock()
+#	adjust_for_walls()
 	
 	self.velocity = velocity.normalized() * speed
 	self.rotation = lerp_angle(rotation, self.velocity.angle_to_point(Vector2.ZERO), 0.4)

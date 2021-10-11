@@ -9,7 +9,7 @@ var screen_size := Vector2.ZERO
 func _ready():
 	screen_size = get_viewport_rect().size
 	
-	# seeding randomizer for spawn location
+	# seeding randomizer
 	randomize()
 	
 	# spawning boids
@@ -17,10 +17,13 @@ func _ready():
 		spawn_boid()
 
 func spawn_boid():
-		
+	
 	# init new boid
 	var boid : Area2D = preload("res://actors/boid.tscn").instance()
-		
+	
+	# add boid to the boids node children 
+	$boids.add_child(boid)
+	
 	# randomizing color
 	boid.modulate = Color(randf(), randf(), randf(), 1)
 	
